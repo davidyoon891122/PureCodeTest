@@ -11,7 +11,7 @@ import PureLayout
 
 class ViewController: UIViewController {
     
-    lazy var avater: UIImageView = {
+    lazy var avatar: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "image03.jpg"))
         imageView.autoSetDimensions(to: CGSize(width: 128.0, height: 128.0))
         imageView.layer.borderWidth = 3.0
@@ -33,10 +33,22 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .blue
         // Do any additional setup after loading the view.
-        self.view.addSubview(avater)
+        self.view.addSubview(avatar)
         self.view.addSubview(upperView)
+        self.view.bringSubviewToFront(avatar)
+        setupConstrains()
         
         
+    }
+    
+    
+    func setupConstrains() {
+        avatar.autoAlignAxis(toSuperviewAxis: .vertical)
+        avatar.autoPinEdge(toSuperviewEdge: .top, withInset: 64.0)
+        
+        upperView.autoPinEdge(toSuperviewEdge: .left)
+        upperView.autoPinEdge(toSuperviewEdge: .right)
+        upperView.autoPinEdgesToSuperviewEdges(with: .zero, excludingEdge: .bottom)
         
     }
 
