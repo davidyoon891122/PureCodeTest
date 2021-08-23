@@ -9,9 +9,21 @@ import UIKit
 import PureLayout
 
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    let profileView = ProfileView(frame: .zero)
+    lazy var profileView: UIView = {
+        return ProfileView(tableView: self.tableView)
+    }()
+    
+    
+    lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.delegate = self
+        tableView.dataSource = self
+        return tableView
+    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +38,17 @@ class ViewController: UIViewController {
         
         
     }
+    
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
     
 
 }
