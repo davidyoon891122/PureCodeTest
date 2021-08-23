@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,7 @@
 		AD351CE226D325DE00D1EC68 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD351CE126D325DE00D1EC68 /* ViewController.swift */; };
 		AD351CE726D325DE00D1EC68 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD351CE626D325DE00D1EC68 /* Assets.xcassets */; };
 		AD351CEA26D325DE00D1EC68 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD351CE826D325DE00D1EC68 /* LaunchScreen.storyboard */; };
+		AD351CF326D39B2000D1EC68 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD351CF226D39B2000D1EC68 /* ProfileView.swift */; };
 		F0AA43884510F2C7E8E1506F /* Pods_PureCode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44F01BB34FF2893000CE603 /* Pods_PureCode.framework */; };
 /* End PBXBuildFile section */
 
@@ -24,6 +25,7 @@
 		AD351CE626D325DE00D1EC68 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AD351CE926D325DE00D1EC68 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AD351CEB26D325DE00D1EC68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AD351CF226D39B2000D1EC68 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		D44F01BB34FF2893000CE603 /* Pods_PureCode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PureCode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D781BA4E463BC05F38C6A08B /* Pods-PureCode.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PureCode.release.xcconfig"; path = "Target Support Files/Pods-PureCode/Pods-PureCode.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -46,7 +48,6 @@
 				3190947CD0293E9C3867414A /* Pods-PureCode.debug.xcconfig */,
 				D781BA4E463BC05F38C6A08B /* Pods-PureCode.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -79,6 +80,7 @@
 		AD351CDC26D325DE00D1EC68 /* PureCode */ = {
 			isa = PBXGroup;
 			children = (
+				AD351CF126D39B0200D1EC68 /* ContactCard */,
 				AD351CDD26D325DE00D1EC68 /* AppDelegate.swift */,
 				AD351CDF26D325DE00D1EC68 /* SceneDelegate.swift */,
 				AD351CE126D325DE00D1EC68 /* ViewController.swift */,
@@ -87,6 +89,14 @@
 				AD351CEB26D325DE00D1EC68 /* Info.plist */,
 			);
 			path = PureCode;
+			sourceTree = "<group>";
+		};
+		AD351CF126D39B0200D1EC68 /* ContactCard */ = {
+			isa = PBXGroup;
+			children = (
+				AD351CF226D39B2000D1EC68 /* ProfileView.swift */,
+			);
+			path = ContactCard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,6 +212,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD351CF326D39B2000D1EC68 /* ProfileView.swift in Sources */,
 				AD351CE226D325DE00D1EC68 /* ViewController.swift in Sources */,
 				AD351CDE26D325DE00D1EC68 /* AppDelegate.swift in Sources */,
 				AD351CE026D325DE00D1EC68 /* SceneDelegate.swift in Sources */,
