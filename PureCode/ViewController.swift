@@ -28,6 +28,15 @@ class ViewController: UIViewController {
         return view
     }()
     
+    lazy var segmentedControl: UISegmentedControl = {
+        let control = UISegmentedControl(items: ["Personal", "Social", "Resume"])
+        control.autoSetDimension(.height, toSize: 32.0)
+        control.selectedSegmentIndex = 0
+        control.layer.borderColor = UIColor.gray.cgColor
+        control.tintColor = .gray
+        return control
+    }()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +44,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         self.view.addSubview(avatar)
         self.view.addSubview(upperView)
+        self.view.addSubview(segmentedControl)
         self.view.bringSubviewToFront(avatar)
         setupConstrains()
         
@@ -49,6 +59,10 @@ class ViewController: UIViewController {
         upperView.autoPinEdge(toSuperviewEdge: .left)
         upperView.autoPinEdge(toSuperviewEdge: .right)
         upperView.autoPinEdgesToSuperviewEdges(with: .zero, excludingEdge: .bottom)
+        
+        segmentedControl.autoPinEdge(toSuperviewEdge: .left, withInset: 8.0)
+        segmentedControl.autoPinEdge(toSuperviewEdge: .right, withInset: 8.0)
+        segmentedControl.autoPinEdge(.top, to: .bottom, of: avatar, withOffset: 16.0)
         
     }
 
