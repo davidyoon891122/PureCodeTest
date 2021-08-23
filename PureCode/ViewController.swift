@@ -37,15 +37,33 @@ class ViewController: UIViewController {
         return control
     }()
     
+    lazy var editButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Edit", for: .normal)
+        button.setTitleColor(.gray, for: .normal)
+        button.layer.cornerRadius = 4.0
+        button.layer.borderColor = UIColor.gray.cgColor
+        button.layer.borderWidth = 1.0
+        button.tintColor = .gray
+        button.backgroundColor = .clear
+        button.autoSetDimension(.width, toSize: 96.0)
+        button.autoSetDimension(.height, toSize: 32.0)
+        return button
+    }()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .blue
+        view.backgroundColor = .white
         // Do any additional setup after loading the view.
         self.view.addSubview(avatar)
         self.view.addSubview(upperView)
         self.view.addSubview(segmentedControl)
+        self.view.addSubview(editButton)
+        
+        
         self.view.bringSubviewToFront(avatar)
+        
         setupConstrains()
         
         
@@ -64,6 +82,8 @@ class ViewController: UIViewController {
         segmentedControl.autoPinEdge(toSuperviewEdge: .right, withInset: 8.0)
         segmentedControl.autoPinEdge(.top, to: .bottom, of: avatar, withOffset: 16.0)
         
+        editButton.autoPinEdge(.top, to: .bottom, of: upperView, withOffset: 8.0)
+        editButton.autoPinEdge(toSuperviewEdge: .right, withInset: 8.0)
     }
 
 
