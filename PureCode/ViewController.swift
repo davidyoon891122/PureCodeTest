@@ -11,6 +11,8 @@ import PureLayout
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    let profileInfoCellReuseIdentifier = "profileCell"
+    
     lazy var profileView: UIView = {
         return ProfileView(tableView: self.tableView)
     }()
@@ -21,6 +23,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.register(ProfileInfoTableViewCell.self, forCellReuseIdentifier: profileInfoCellReuseIdentifier)
+        tableView.estimatedRowHeight = 64
+        tableView.rowHeight = 70
         return tableView
     }()
     
@@ -36,17 +41,41 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.profileView.autoPinEdgesToSuperviewEdges()
         self.view.layoutIfNeeded()
         
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+        
         
     }
     
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: profileInfoCellReuseIdentifier, for:indexPath) as! ProfileInfoTableViewCell
+        
+        switch indexPath.row {
+        case 0:
+            cell.titleLabel.text = "Phone Number"
+            cell.descriptionLabel.text = "+23456789"
+        case 1:
+            cell.titleLabel.text = "Email"
+            cell.descriptionLabel.text = "john@doe.com"
+        case 2:
+            cell.titleLabel.text = "LinkedIn"
+            cell.descriptionLabel.text = "www.linkedin.com/john-doe"
+        case 3:
+            cell.titleLabel.text = "Address"
+            cell.descriptionLabel.text = "45, Walt Disney St.\n37485, Mickey Mouse State"
+        default:
+            break
+        }
+        
+        
+        return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 4
     }
     
     
